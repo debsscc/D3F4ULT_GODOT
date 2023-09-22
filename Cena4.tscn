@@ -1,0 +1,126 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Mike.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Backgrounds/sala default sem post it.png" type="Texture" id=2]
+[ext_resource path="res://Cena4.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/Hallway_Ambience.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Fonts/Square.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://manodog/cao0000.png" type="Texture" id=7]
+[ext_resource path="res://manodog/cao0001.png" type="Texture" id=8]
+[ext_resource path="res://manodog/cao0002.png" type="Texture" id=9]
+[ext_resource path="res://Mika.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 129.5, 89.25 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "pisca",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFont" id=14]
+size = 42
+outline_color = Color( 0.0156863, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=15]
+default_font = SubResource( 13 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 509.06, 301 )
+scale = Vector2( 0.156142, 0.163111 )
+texture = ExtResource( 2 )
+
+[node name="mika" parent="." instance=ExtResource( 11 )]
+position = Vector2( 749, 400 )
+monitorable = false
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 477, 404 )
+
+[node name="Porta" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 922.0
+margin_top = 158.0
+margin_right = 1062.0
+margin_bottom = 490.0
+mouse_default_cursor_shape = 2
+
+[node name="mesa" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mesa"]
+position = Vector2( 124.5, 475.75 )
+shape = SubResource( 1 )
+
+[node name="ManoDOG" type="AnimatedSprite" parent="."]
+position = Vector2( 100, 424 )
+scale = Vector2( 0.240926, 0.240926 )
+frames = SubResource( 3 )
+animation = "pisca"
+
+[node name="Mika" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 679.0
+margin_top = 264.0
+margin_right = 818.0
+margin_bottom = 528.0
+mouse_default_cursor_shape = 2
+
+[node name="corredor_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -12.244
+
+[node name="Popup_Menu" type="Control" parent="."]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Popup_Menu"]
+margin_left = -3.0
+margin_top = -4.0
+margin_right = 1027.0
+margin_bottom = 604.0
+color = Color( 0, 0, 0, 0.854902 )
+
+[node name="Main_Menu" type="Label" parent="Popup_Menu"]
+margin_left = 368.0
+margin_top = 192.0
+margin_right = 653.0
+margin_bottom = 237.0
+custom_fonts/font = SubResource( 14 )
+text = "jogo pausado"
+
+[node name="Menu" type="Button" parent="Popup_Menu"]
+margin_left = 432.0
+margin_top = 280.0
+margin_right = 600.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 128, 20 )
+mouse_default_cursor_shape = 2
+theme = SubResource( 15 )
+text = "Continuar"
+
+[node name="Menu2" type="Button" parent="Popup_Menu"]
+margin_left = 432.0
+margin_top = 344.0
+margin_right = 600.0
+margin_bottom = 376.0
+rect_pivot_offset = Vector2( 128, 20 )
+mouse_default_cursor_shape = 2
+theme = SubResource( 15 )
+text = "Sair do jogo"
+
+[connection signal="pressed" from="Porta" to="." method="_on_Porta_pressed"]
+[connection signal="pressed" from="Mika" to="." method="_on_Mika_pressed"]
+[connection signal="pressed" from="Popup_Menu/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="Popup_Menu/Menu2" to="." method="_on_Menu2_pressed"]

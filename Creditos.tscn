@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Fonts/Square.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Creditos.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1026.0
+margin_bottom = 603.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Titulo" type="Label" parent="."]
+margin_left = 280.0
+margin_top = 115.0
+margin_right = 751.0
+margin_bottom = 179.0
+theme = SubResource( 2 )
+text = "Créditos finais: "
+
+[node name="Funções" type="Label" parent="."]
+margin_left = 295.0
+margin_top = 242.0
+margin_right = 759.0
+margin_bottom = 498.0
+theme = SubResource( 4 )
+text = "Character Artist:  
+
+Background Artist: 
+
+Animador: 
+
+Roteirista: 
+
+Programador: "
+
+[node name="Nome_Isabella" type="Label" parent="."]
+margin_left = 511.0
+margin_top = 242.0
+margin_right = 721.0
+margin_bottom = 266.0
+rect_pivot_offset = Vector2( 128, 16 )
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 0.584314, 0.968627, 1, 1 )
+text = "Isabella fontanari"
+
+[node name="Nome_Marcella" type="Label" parent="."]
+margin_left = 518.0
+margin_top = 296.0
+margin_right = 728.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 128, 16 )
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 0.584314, 0.968627, 1, 1 )
+text = "Marcella fiorelli"
+
+[node name="Nome_Vito" type="Label" parent="."]
+margin_left = 407.0
+margin_top = 349.0
+margin_right = 617.0
+margin_bottom = 373.0
+rect_pivot_offset = Vector2( 128, 16 )
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 0.584314, 0.968627, 1, 1 )
+text = "vitor emanoel"
+
+[node name="Nome_Camille" type="Label" parent="."]
+margin_left = 427.0
+margin_top = 402.0
+margin_right = 637.0
+margin_bottom = 426.0
+rect_pivot_offset = Vector2( 128, 16 )
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 0.584314, 0.968627, 1, 1 )
+text = "camille carvalho"
+
+[node name="Nome_Debs" type="Label" parent="."]
+margin_left = 462.0
+margin_top = 453.0
+margin_right = 672.0
+margin_bottom = 477.0
+rect_pivot_offset = Vector2( 128, 16 )
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 0.584314, 0.968627, 1, 1 )
+text = "debs sieburger"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 840.0
+margin_top = 528.0
+margin_right = 952.0
+margin_bottom = 560.0
+theme = SubResource( 8 )
+text = "Voltar"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

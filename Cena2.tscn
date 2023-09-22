@@ -1,0 +1,239 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://videos/mapa-casa-label.webm" type="VideoStream" id=1]
+[ext_resource path="res://cena2.gd" type="Script" id=2]
+[ext_resource path="res://videos/video-inicio-windows.webm" type="VideoStream" id=3]
+[ext_resource path="res://Backgrounds/workspace png.png" type="Texture" id=4]
+[ext_resource path="res://Backgrounds/TELA BEM VINDO PNG.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/Mouse_click.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Backgrounds/ADICIONAR AMIGO PNG.png" type="Texture" id=7]
+[ext_resource path="res://Sounds/XPnotify.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Backgrounds/INICIAR CONVERSA PNG.png" type="Texture" id=9]
+[ext_resource path="res://Sounds/Xp_error.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Fonts/Square.ttf" type="DynamicFontData" id=11]
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Fonts/Square.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 23
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Fonts/Square.ttf"
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+font_data = SubResource( 6 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 42
+outline_color = Color( 0.0156863, 0, 0, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 11 )
+
+[sub_resource type="Theme" id=15]
+default_font = SubResource( 13 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 0.267708, 0.27963 )
+texture = ExtResource( 4 )
+
+[node name="VideoPlayer2" type="VideoPlayer" parent="."]
+margin_top = 6.10352e-05
+margin_right = 1029.0
+margin_bottom = 599.0
+stream = ExtResource( 3 )
+volume_db = -33.31
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_top = 3.05176e-05
+margin_right = 1038.0
+margin_bottom = 609.0
+stream = ExtResource( 1 )
+
+[node name="msn_botao" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 106.0
+margin_top = 207.0
+margin_right = 167.0
+margin_bottom = 258.0
+mouse_default_cursor_shape = 2
+
+[node name="Popup" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 3.0
+margin_bottom = 2.0
+rect_pivot_offset = Vector2( 515, 301 )
+
+[node name="Sprite" type="Sprite" parent="Popup"]
+position = Vector2( 514, 283.75 )
+scale = Vector2( 0.268229, 0.262269 )
+texture = ExtResource( 5 )
+
+[node name="Entrar" type="Button" parent="Popup"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.43
+anchor_top = 0.568
+anchor_right = 0.569
+anchor_bottom = 0.634
+margin_left = -0.470001
+margin_top = -0.0720215
+margin_right = 0.499023
+margin_bottom = 0.0639954
+rect_pivot_offset = Vector2( 70, 14 )
+mouse_default_cursor_shape = 2
+
+[node name="mouse_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -24.471
+
+[node name="Popup2" type="Popup" parent="."]
+anchor_right = 1.005
+anchor_bottom = 1.0
+margin_right = -0.119995
+margin_bottom = 4.0
+
+[node name="Enviar" type="Button" parent="Popup2"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.504
+anchor_top = 0.644
+anchor_right = 0.612
+anchor_bottom = 0.697
+margin_left = 0.383972
+margin_top = 0.0239563
+margin_right = 0.251953
+margin_bottom = 0.0119934
+mouse_default_cursor_shape = 2
+
+[node name="Adicionar_amigo" type="Sprite" parent="Popup2"]
+position = Vector2( 511.333, 283 )
+scale = Vector2( 0.267014, 0.261111 )
+texture = ExtResource( 7 )
+
+[node name="LineEdit" type="LineEdit" parent="Popup2"]
+margin_left = 399.0
+margin_top = 351.0
+margin_right = 629.0
+margin_bottom = 378.0
+placeholder_text = "D3F4ULT"
+placeholder_alpha = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Popup3" type="Popup" parent="."]
+anchor_right = 1.001
+anchor_bottom = 1.0
+margin_right = -0.0240479
+margin_bottom = 1.0
+
+[node name="Sprite" type="Sprite" parent="Popup3"]
+position = Vector2( 511.722, 300 )
+scale = Vector2( 0.267332, 0.278704 )
+texture = ExtResource( 9 )
+
+[node name="IniciarConversa" type="Button" parent="Popup3"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.402
+anchor_top = 0.611
+anchor_right = 0.604
+anchor_bottom = 0.662
+margin_left = -0.0500183
+margin_top = -0.210999
+margin_right = -0.100037
+margin_bottom = 0.13797
+rect_pivot_offset = Vector2( 5.00003, 10 )
+mouse_default_cursor_shape = 2
+
+[node name="Timer2_Aceito" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="Xp_error" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="notificacao" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 923.0
+margin_top = 572.0
+margin_right = 964.0
+margin_bottom = 599.0
+
+[node name="time_label" type="Label" parent="VBoxContainer"]
+margin_right = 41.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 4 )
+text = "10:10"
+
+[node name="date_label" type="Label" parent="VBoxContainer/time_label"]
+margin_left = -101.0
+margin_top = 6.0
+margin_right = -15.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 1 )
+text = "08/04/2023"
+
+[node name="Popup_Menu" type="Control" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Popup_Menu"]
+self_modulate = Color( 0, 0, 0, 0.854902 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.854902 )
+
+[node name="Main_Menu" type="Label" parent="Popup_Menu"]
+margin_left = 368.0
+margin_top = 192.0
+margin_right = 653.0
+margin_bottom = 237.0
+custom_fonts/font = SubResource( 14 )
+text = "jogo pausado"
+
+[node name="Menu" type="Button" parent="Popup_Menu"]
+margin_left = 432.0
+margin_top = 280.0
+margin_right = 600.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 128, 20 )
+mouse_default_cursor_shape = 2
+theme = SubResource( 15 )
+text = "Continuar"
+
+[node name="Menu2" type="Button" parent="Popup_Menu"]
+margin_left = 432.0
+margin_top = 344.0
+margin_right = 600.0
+margin_bottom = 376.0
+rect_pivot_offset = Vector2( 128, 20 )
+mouse_default_cursor_shape = 2
+theme = SubResource( 15 )
+text = "Sair do jogo"
+
+[connection signal="finished" from="VideoPlayer2" to="." method="_on_VideoPlayer2_finished"]
+[connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]
+[connection signal="pressed" from="msn_botao" to="." method="_on_msn_botao_pressed"]
+[connection signal="pressed" from="Popup/Entrar" to="." method="_on_Entrar_pressed"]
+[connection signal="finished" from="mouse_click" to="." method="_on_mouse_click_finished"]
+[connection signal="pressed" from="Popup2/Enviar" to="." method="_on_Enviar_pressed"]
+[connection signal="about_to_show" from="Popup3" to="." method="_on_Popup3_about_to_show"]
+[connection signal="pressed" from="Popup3/IniciarConversa" to="." method="_on_IniciarConversa_pressed"]
+[connection signal="timeout" from="Timer2_Aceito" to="." method="_on_Timer2_Aceito_timeout"]
+[connection signal="pressed" from="Popup_Menu/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="Popup_Menu/Menu2" to="." method="_on_Menu2_pressed"]
